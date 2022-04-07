@@ -53,7 +53,8 @@
     "win": {
       "target": [
         "portable"
-      ]
+      ],
+      "signAndEditExecutable": false
     },
     "directories": {
       "buildResources": "main"
