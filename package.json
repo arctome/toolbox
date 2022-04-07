@@ -29,6 +29,9 @@
     "dev": "nf start -p 3000",
     "pack": "build --dir",
     "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux",
     "postinstall": "install-app-deps"
   },
   "browserslist": {
@@ -55,6 +58,16 @@
         "portable"
       ],
       "signAndEditExecutable": false
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "zip"
+      ]
     },
     "directories": {
       "buildResources": "main"
