@@ -21,6 +21,9 @@ jobs:
         name: dist
         path: |
           dist
+          !dist/linux-unpacked
+          !dist/win-unpacked
+          !dist/mac
 
   build_on_mac:
     runs-on: macos-latest
@@ -35,12 +38,17 @@ jobs:
       run: npm run build
     - name: build
       run: npm run dist:mac
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
         name: dist
         path: |
           dist
+          !dist/linux-unpacked
+          !dist/win-unpacked
+          !dist/mac
 
   build_on_win:
     runs-on: windows-latest
@@ -61,3 +69,6 @@ jobs:
         name: dist
         path: |
           dist
+          !dist/linux-unpacked
+          !dist/win-unpacked
+          !dist/mac
